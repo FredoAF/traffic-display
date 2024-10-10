@@ -48,7 +48,12 @@
 		const todayconfig = {
 			type: 'line',
 			data: todaydata,
-			options: { maintainAspectRatio: false, scales: {x: {type: 'time'}} }
+			options: { maintainAspectRatio: false, scales: {
+				x: {type: 'time'},
+				y: {title: {
+					display: true, text: 'Time in mins'
+				}}
+			}}
 		};
 
 		const yesterdayconfig = {
