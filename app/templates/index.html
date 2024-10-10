@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+	<title>Towcester A5 Traffic Alerts</title>
+</head>
+
+<body>
+	<h1>Towcester A5 Traffic Alerts 🚗</h1>
+	<div style="height: 50vh; width: 100%;">
+		<canvas id="todayChart"></canvas>
+	</div>
+	<div>
+		<h2>Live View</h2>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d39219.044638991465!2d-0.9632502037788686!3d52.09446831964505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d52.122268!2d-0.9730219999999999!4m3!3m2!1d52.066852999999995!2d-0.8714004999999999!5e0!3m2!1sen!2suk!4v1728586724246!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+	<div>
+		<p>Sign up for alerts by downloading the ntfy app from the app store, and subscribing to towcestera5alerts</p>
+	</div>
+	<!-- <div style="height: 50vh; width: 100%;"></div>
+		<canvas id="yesterdayChart"></canvas>
+	</div> -->
+
+	<script>
+
+		const todaydata = {
+			datasets: [{
+				label: 'Today',
+				backgroundColor: 'rgb(255, 99, 132)',
+				borderColor: 'rgb(255, 99, 132)',
+				data: {{ data1 | tojson}},
+			},{
+				label: 'Yesterday',
+				backgroundColor: 'rgb(0, 99, 132)',
+				borderColor: 'rgb(0, 99, 132)',
+				data: {{ data2 | tojson}},
+			}]
+		};
+
+		const yesterdaydata = {
+			datasets: []
+		};
+
+		const todayconfig = {
+			type: 'line',
+			data: todaydata,
+			options: { maintainAspectRatio: false, scales: {x: {type: 'time'}} }
+		};
+
+		const yesterdayconfig = {
+			type: 'line',
+			data: todaydata,
+			options: { maintainAspectRatio: false, scales: {x: {type: 'time'}} }
+		};
+
+		const todayChart = new Chart(
+			document.getElementById('todayChart'),
+			todayconfig
+		);
+
+		// const yesterdayChart = new Chart(
+		// 	document.getElementById('yesterdayChart'),
+		// 	yesterdayconfig
+		// );
+
+	</script>
+</body>
+</html>
