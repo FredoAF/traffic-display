@@ -43,14 +43,13 @@
   </head>
 
   <body>
-
     <main>
       <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom">
-			<span class="fs-4">🚗 Towcester A5 Traffic Alerts</span>
+          <span class="fs-4">🚗 Towcester A5 Traffic Alerts</span>
         </header>
 
-        <div class="p-3 mb-2 bg-light rounded-3 " style="height:600px">
+        <div class="p-3 mb-2 bg-light rounded-3" style="height: 600px">
           <div class="container-fluid py-5 h-100">
             <canvas id="todayChart"></canvas>
             <!-- <h1 class="display-5 fw-bold">Custom jumbotron</h1>
@@ -60,7 +59,7 @@
         </div>
 
         <div class="row align-items-md-stretch">
-          <div class="col-md-8" style="height:600px">
+          <div class="col-md-8" style="height: 600px">
             <div class="h-100 p-5 text-bg-dark rounded-3">
               <h2>Live View</h2>
               <iframe
@@ -77,11 +76,18 @@
           <div class="col-md-4">
             <div class="h-100 p-5 bg-light rounded-3">
               <h3>Mobile Notifications</h3>
-              <p>
-                Download the app
-              </p>
-              <a href="https://play.google.com/store/apps/details?id=io.heckel.ntfy"><img src="{{ url_for('static', filename='google.png') }}" style="height: 40px"/></a>
-              <a href="https://apps.apple.com/us/app/ntfy/id1625396347"><img src="{{ url_for('static', filename='apple.png') }}" style="height: 40px"/></a>
+              <p>Download the app</p>
+              <a
+                href="https://play.google.com/store/apps/details?id=io.heckel.ntfy"
+                ><img
+                  src="{{ url_for('static', filename='google.png') }}"
+                  style="height: 40px"
+              /></a>
+              <a href="https://apps.apple.com/us/app/ntfy/id1625396347"
+                ><img
+                  src="{{ url_for('static', filename='apple.png') }}"
+                  style="height: 40px"
+              /></a>
               <p>Hit the + and subscribe to</p>
               <p class="lead">towcestera5alerts</p>
               <img
@@ -92,7 +98,6 @@
             </div>
           </div>
         </div>
-        
 
         <footer class="pt-3 mt-4 text-muted border-top">
           &copy; Alex Farren 2024
@@ -157,7 +162,8 @@
           appName: "A5", // Name of the app. [Required]
           appNameDisplay: "standalone", // Display position of the app name [Optional]
           appIconUrl: "./static/apple-touch-icon.png", // App icon link (square, at least 40 x 40 pixels) [Required]
-          assetUrl: "https://cdn.jsdelivr.net/gh/philfung/add-to-homescreen@2.2/dist/assets/img/", // Link to directory of library image assets [Required]
+          assetUrl:
+            "https://cdn.jsdelivr.net/gh/philfung/add-to-homescreen@2.2/dist/assets/img/", // Link to directory of library image assets [Required]
           maxModalDisplayCount: -1, // If set, the modal will only show this many times [Optional. Default: -1 (no limit).]
           // (Debugging: Use this.clearModalDisplayCount() to reset the count)
         });
